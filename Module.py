@@ -81,7 +81,7 @@ def brownian(x0, n, dt, delta, out=None):
 
     return out
 
-def main():
+def main(xmin,xmax,ymin,ymax):
 
     # The Wiener process parameter.
     delta = 0.25
@@ -126,7 +126,7 @@ def main():
     
             TF=0
 	    # sumo uno si la trayectoria esta en el perimetro	    
-	    if x[0][len(x)-1]>-30 and x[0][len(x)-1]<0 and x[1][len(x)-1]>-10 and x[1][len(x)-1]<10:
+	    if x[0][len(x)-1]>xmin and x[0][len(x)-1]<xmax and x[1][len(x)-1]>ymin and x[1][len(x)-1]<ymax:
        	    	TF += 1
             # junto cada trayectoria en un append   
             TFr.append (TF)	
@@ -146,19 +146,11 @@ def main():
     return (TFr)
     
     
-def gill(K1, K_1,K2, K3, TF):
-    tmax = 50
-    t = 0.
-
-#- mRNA degradation = de 2 a 18 hour(^-1)
-#- protein degradation = de 0.1 a 2 hour(^-1)
-
-    K4=10; K5=1.05; K6 = 15;  
-    Pm=1.0; Pm_A=0.; m=0.0; p=0.0;  
+def gill(K1, K_1,K2, K3, K4, K5, K6, TF, Pm, Pm_A, m, p, t, tmax, xmin,xmax,ymin,ymax):
 
     trange = []
     prange = []    
-    TFr= main() 
+    TFr= main(xmin,xmax,ymin,ymax)
 
     tau=0         
 
@@ -196,6 +188,3 @@ def gill(K1, K_1,K2, K3, TF):
 
     return (trange,prange)
     
-    TFr=main()
-(trange,prange) = gill(2.55,50.5,600,50,TFr[0])
-plot(trange,prange, label='Area [-30,0;-10,10](mitad total)')
