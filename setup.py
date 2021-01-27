@@ -31,7 +31,7 @@ t = float(raw_input("t: Initial time in hours (0) "))
 tmax = float(raw_input("tmax: Total time in simulation (50) "))
 
 print "\n Our virtual cell size is x[-30,30] and y[-10,10]"
-print "\n Knowing that... in which area want to calculate the TF expression?"
+print "\n Knowing that... in which area want to calculate the TF expression? (arbitrary magnitudes)"
 
 xmin = float(raw_input("xmin: "))
 xmax = float(raw_input("xmax: "))

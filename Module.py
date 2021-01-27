@@ -99,7 +99,7 @@ def main(xmin,xmax,ymin,ymax):
     def insideCell(x,y):
         if x>-30 and x<30 and y>-10 and y<10: return True
         else: return False
-    #elementos
+    # elements
 
     for i in range(200):
 
@@ -125,7 +125,7 @@ def main(xmin,xmax,ymin,ymax):
             
     
             TF=0
-	    # sumo uno si la trayectoria esta en el perimetro	    
+	    # add 1 if trayectory is in the perimeter	    
 	    if x[0][len(x)-1]>xmin and x[0][len(x)-1]<xmax and x[1][len(x)-1]>ymin and x[1][len(x)-1]<ymax:
        	    	TF += 1
             # junto cada trayectoria en un append   
